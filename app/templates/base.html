@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% block head %}
+		<title>{% block title %}{% endblock %}</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="author" content="Cedric Murairi">
+		<meta name="description" content="ALU Operations FrontDesk Service">
+		<link rel="stylesheet" type="text/css" href="/static/main.css">
+	{% endblock %}
+</head>
+<body>
+	<header>
+		<div id="logo">ALU</div>
+		<nav>
+			{% block nav %}{% endblock %}
+		</nav>
+	</header>
+	<hr>
+	<section>
+		{% block body %}Here is the show{% endblock %}
+	</section>
+	<hr>
+	<footer>
+		<div id="left-footer-component">&copy African Leadership University 2020</div>
+		<div id="right-footer-component"></div>
+	</footer>
+	<script type="text/javascript" src="/static/main.js"></script>
+</body>
+</html>

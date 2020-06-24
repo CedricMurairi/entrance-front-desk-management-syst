@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block head %}
+	{{ super() }}
+<!--     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}"> -->
+{% endblock %}
+
+{% block title %}All Entries{% endblock %}
+
+{% block nav %}
+	<form id='all_search' action="url_for('')" method="POST">
+		<input type="search" name="search_all_entry">
+		<button type="submit">Proceed with search</button>
+	</form>
+{% endblock %}
+
+{% block body %}
+	<h1>Entry Results</h1>
+	{% for visitor in all_entries %}
+		<div data-id="{{ visitor.id }}" class="card">
+			<div>
+				<h4>{{ visitor.name }}</h4>
+				<h5>{{ visitor.email }}</h5>
+				<p>{{ visitor.person_visited }}</p>
+			</div>
+			<div>
+				<div class="time_detail">
+					<p>Entry: {{ visitor.entry_time }}</p>
+					{% if visitor.is_out %}
+						<p>Exit: {{ visitor.exit_time }}</p>
+					{% endif %}
+				</div>
+				{% if visitor.is_out %}
+					<button data-id="{{ visitor.id }}" class="visitor_detail_button">View Details</button>
+				{% else %}
+					<button data-id="{{ visitor.id }}" class="exit_button_all">Exit Campus</button>
+				{% endif %}
+			</div>
+		</div>
+	{% endfor %}
+{% endblock %}
