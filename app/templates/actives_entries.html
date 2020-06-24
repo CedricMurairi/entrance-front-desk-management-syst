@@ -17,7 +17,7 @@
 {% block body %}
 	<h1>Entry Result</h1>
 	{% for visitor in actives_entries %}
-		<div class="card">
+		<div data-id="{{ visitor.id }}" class="card">
 			<div>
 				<h4>{{ visitor.name }}</h4>
 				<h5>{{ visitor.email }}</h5>
@@ -27,7 +27,7 @@
 				<div>
 					<p>Entry: {{ visitor.entry_time }}</p>
 				</div>
-				<button class="exit_button_active">Exit Campus</button>
+				<button data-id="{{ visitor.id }}" class="exit_button">Exit Campus</button>
 			</div>
 		</div>
 	{% endfor %}

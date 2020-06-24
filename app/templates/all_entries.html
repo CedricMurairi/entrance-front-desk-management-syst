@@ -15,8 +15,20 @@
 {% endblock %}
 
 {% block body %}
+	<div class="cover"></div>
 	<h1>Entry Results</h1>
 	{% for visitor in all_entries %}
+		<div data-id="{{ visitor.id }}" class="show_details">
+			<h4>{{ visitor.name }}</h4>
+			<h5>{{ visitor.email }}</h5>
+			<p>{{ visitor.person_visited }}</p>
+			<div class="time_detail">
+				<p>Entry: {{ visitor.entry_time }}</p>
+				{% if visitor.is_out %}
+					<p>Exit: {{ visitor.exit_time }}</p>
+				{% endif %}
+			</div>
+		</div>
 		<div data-id="{{ visitor.id }}" class="card">
 			<div>
 				<h4>{{ visitor.name }}</h4>
@@ -33,7 +45,7 @@
 				{% if visitor.is_out %}
 					<button data-id="{{ visitor.id }}" class="visitor_detail_button">View Details</button>
 				{% else %}
-					<button data-id="{{ visitor.id }}" class="exit_button_all">Exit Campus</button>
+					<button data-id="{{ visitor.id }}" class="exit_button">Exit Campus</button>
 				{% endif %}
 			</div>
 		</div>
