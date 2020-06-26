@@ -2,8 +2,7 @@
 
 {% block head %}
 	{{ super() }}
-    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-    <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}"> -->
 {% endblock %}
 
 {% block title %}Entrance{% endblock %}
@@ -20,7 +19,7 @@
 		{% for message in get_flashed_messages() %}
 			<h4>{{ message }}</h4>
 		{% endfor %}
-		<form action="{{url_for('main.entrance')}}" method="POST">
+		<form id="entrance_form" action="{{url_for('main.entrance')}}" method="POST">
 			<input type="text" name="name" placeholder="Enter name"><br>
 			<input type="email" name="email" placeholder="Enter email"><br>
 			<input type="text" name="person_visited" placeholder="Enter person visited"><br>

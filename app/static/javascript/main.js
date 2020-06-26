@@ -1,8 +1,34 @@
 var visitor_detail_button = document.querySelectorAll('.visitor_detail_button');
 var exit_button_all = document.querySelectorAll('.exit_button');
-console.log(exit_button_all);
-var search_form_active = document.querySelector('#active_search');
-var search_form_all = document.querySelector('#all_search');
+
+var search_form = document.querySelector('#all_search').onsubmit = ()=>{
+	alert('submitted');
+	console.log('submitted');
+	const input = document.querySelector('#search_input').value;
+	console.log(input);
+
+	var request = new XMLHttpRequest();
+
+	request.onload = function(){
+		if(request.readyState === XMLHttpRequest.DONE){
+			if(request.status === 200){
+				document.querySelector('')
+			}
+		}
+		else
+			console.log('No response for now');
+	}
+
+	request.open('POST', window.origin + '/search', true);
+
+	var data = new FormData();
+	data.append("visitor_name", input);
+
+	request.send(data);
+
+	return false;
+}
+
 
 document.querySelectorAll('.visitor_detail_button').forEach(function(button){
 	button.addEventListener('click', function(){
@@ -21,7 +47,7 @@ exit_button_all.forEach(function(button){
 		var visitor_id = this.dataset.id;
 		// console.log(visitor_id);
 
-		var httpRequest = new XMLHttpRequest()
+		var httpRequest = new XMLHttpRequest();
 
 		// request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		// httpRequest.open("POST", '/exit', true);

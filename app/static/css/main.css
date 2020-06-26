@@ -1,4 +1,5 @@
 body{
+	min-width: 318px;
 	width: 80%;
 	margin: auto;
 	height: 100vh;
@@ -8,7 +9,18 @@ body{
 header{
 	display: flex;
 	justify-content: space-between;
-	height: 10vh;
+	min-height: 10vh;
+}
+
+#logo{
+	flex: 1;
+	padding-top: 2px;
+}
+
+nav{
+	flex: 3;
+	display: flex;
+	flex-grow: 1;
 }
 
 header ul{
@@ -24,14 +36,26 @@ a{
 }
 
 a:visited{
-	color: rgba(200, 200, 200, 0.5);
+	color: black;
 }
 
 #form_block{
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 	margin-top: 50px;
 }
+
+#entrance_form{
+	width: 90%;
+}
+
+/*#entries{
+	display: grid;
+  	grid-template-columns: 1fr 1fr;
+  	grid-template-rows: auto;
+}*/
 
 section {
 	height: 80vh;
@@ -58,6 +82,13 @@ footer{
 	animation-play-state: paused;
 }
 
+.card div:nth-child(2){
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: fit-content;
+}
+
 .card h2, h3, h4, h5, h6{
 	padding: 0px;
 	margin: 0px;
@@ -66,13 +97,13 @@ footer{
 
 header li, button{
 	padding: 10px 5px;
-	background-color: black;
-	color: white;
+	background-color: white;
+	color: black;
 	font-weight: bold;
 	border-radius: 5px;
-	box-shadow: 1px 1px 1px black;
+	border: 1px solid rgba(0, 0, 0, 0.5);
+	/*box-shadow: 1px 1px 1px black;*/
 	outline: none;
-	border: none;
 	cursor: pointer;
 }
 
@@ -83,6 +114,10 @@ input[type='text'], input[type='search'], input[type='email']{
 	border: 1px solid rgba(0, 0, 0, 0.3);
 	margin: 5px 0px;
 	width: 500px;
+}
+
+input[type='search']{
+	width: 300px;
 }
 
 .time_detail p{
@@ -124,14 +159,62 @@ input[type='text'], input[type='search'], input[type='email']{
 
 @media screen and (max-width: 800px){
 	body{
-		background-color: red;
+		/*background-color: red;*/
+	}
+
+	input[type='search']{
+		width: auto;
+		flex: 2;
+	}
+
+	nav form button{
+		flex: 1;
+	}
+
+	input[type='text'], input[type='search'], input[type='email']{
+		width: 100%;
+	}
+
+	.time_detail p{
+		font-size: 8px;
+	}
+
+	.card div:nth-child(2){
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 	}
 }
 
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 450px){
 	body{
-		background-color: yellow;
+		/*background-color: yellow;*/
+		width: 95%;
+	}
+
+	nav, header{
+		display: block;
+	}
+
+	nav{
+		text-align: left;
+	}
+
+	.time_detail p{
+		display: none;
+	}
+
+	.card button{
+		font-size: 12px;
+	}
+
+	input[type='search']{
+		width: 80%;
+	}
+
+	nav{
+		padding-top: 20px;
 	}
 }
 
